@@ -2,43 +2,46 @@
   Espere por favor...
 </div>
 
-<ng-template #divPais>
-  <div class="row">
-    <div class="col-12">
-      <h1>
-        País: <small>{{ pais.name.common }}</small>
-      </h1>
+<div class="animate__animated animate__fadeIn animate_faster">
+  <ng-template #divPais>
+    <div class="row">
+      <div class="col-12">
+        <h1>
+          País: <small>{{ pais.name.common }}</small>
+        </h1>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-4">
-      <h3>Bandera</h3>
-      <img [src]="pais.flags.png" class="img-thumbnail" />
+    <div class="row">
+      <div class="col-4">
+        <h3>Bandera</h3>
+        <img [src]="pais.flags.png" class="img-thumbnail" />
+      </div>
+      <div class="col">
+        <h3>Información</h3>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong>Población </strong>{{ pais.population | number }}
+          </li>
+          <li class="list-group-item">
+            <strong>Código numérico </strong>{{ pais.ccn3 | number }}
+          </li>
+          <li class="list-group-item">
+            <strong>Código alpha </strong>{{ pais.cca2 }}
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="col">
-      <h3>Información</h3>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <strong>Población </strong>{{ pais.population | number }}
-        </li>
-        <li class="list-group-item">
-          <strong>Código numérico </strong>{{ pais.ccn3 | number }}
-        </li>
-        <li class="list-group-item">
-          <strong>Código alpha </strong>{{ pais.cca2 }}
-        </li>
-      </ul>
+  
+    <h3>Traducciones</h3>
+    <div class="row">
+      <div class="col">
+        <span *ngFor="let t of pais.translations | keyvalue"
+        class="badge bg-primary mr-1"> {{t.value.common}}</span>
+        
+      </div>
     </div>
-  </div>
+  
+    <pre></pre>
+  </ng-template>
+</div>
 
-  <h3>Traducciones</h3>
-  <div class="row">
-    <div class="col">
-      <span *ngFor="let t of pais.translations | keyvalue"
-      class="badge bg-primary mr-1"> {{t.value.common}}</span>
-      
-    </div>
-  </div>
-
-  <pre></pre>
-</ng-template>
